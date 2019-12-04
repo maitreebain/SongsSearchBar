@@ -10,14 +10,53 @@ import UIKit
 
 class SongViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var song = [Song]() {
-        
+        didSet {
+            tableView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadData()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
+    func loadData() {
+        song = Song.loveSongs
+    }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 }
+
+extension SongViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+}
+
+extension SongViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return song.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath)
+        
+        let selectedSong = song[indexPath.row]
+        
+        cell.textLabel?.text = selectedSong.name
+        cell.detailTextLabel?.text = selectedSong.artist
+        
+        return cell
+    }
+    
+}
+
+

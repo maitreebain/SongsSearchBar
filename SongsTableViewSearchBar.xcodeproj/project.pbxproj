@@ -13,6 +13,7 @@
 		54DF90541FB02DBB00B228CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54DF90521FB02DBB00B228CF /* LaunchScreen.storyboard */; };
 		54DF905C1FB02F3E00B228CF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DF905B1FB02F3E00B228CF /* Song.swift */; };
 		80327F962394D75D0076C063 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80327F952394D75D0076C063 /* SongViewController.swift */; };
+		80D465A1239837E2005FEA2B /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D465A0239837E2005FEA2B /* SongDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		54DF90551FB02DBB00B228CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54DF905B1FB02F3E00B228CF /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		80327F952394D75D0076C063 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		80D465A0239837E2005FEA2B /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				54DF90491FB02DBB00B228CF /* AppDelegate.swift */,
 				54DF905B1FB02F3E00B228CF /* Song.swift */,
 				80327F952394D75D0076C063 /* SongViewController.swift */,
+				80D465A0239837E2005FEA2B /* SongDetailViewController.swift */,
 				54DF904D1FB02DBB00B228CF /* Main.storyboard */,
 				54DF90501FB02DBB00B228CF /* Assets.xcassets */,
 				54DF90521FB02DBB00B228CF /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			files = (
 				80327F962394D75D0076C063 /* SongViewController.swift in Sources */,
 				54DF905C1FB02F3E00B228CF /* Song.swift in Sources */,
+				80D465A1239837E2005FEA2B /* SongDetailViewController.swift in Sources */,
 				54DF904A1FB02DBB00B228CF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
