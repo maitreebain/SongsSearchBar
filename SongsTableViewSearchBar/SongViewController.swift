@@ -96,12 +96,23 @@ extension SongViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if searchText.count != 0 {
+        if searchText.count == 0 {
             loadData()
+            return
         }
         
         searchQuery = searchText
-        
     }
     
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        
+        switch selectedScope {
+        case 0:
+            currentScope = .artist
+        case 1:
+            currentScope = .title
+        default:
+            print("not a valid scope")
+        }
+    }
 }
