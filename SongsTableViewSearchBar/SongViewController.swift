@@ -39,7 +39,7 @@ class SongViewController: UIViewController {
     func loadData() {
         song = Song.loveSongs
     }
-
+    
     var searchQuery = "" {
         didSet {
             switch currentScope {
@@ -51,6 +51,14 @@ class SongViewController: UIViewController {
         }
     }
     
+    func noEmptySearch(for searchText: String) {
+        
+        guard !searchText.isEmpty else { return }
+        
+        song = Song.loveSongs.filter { $0.artist.contains(searchText.lowercased())}
+        
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let songDetailVC = segue.destination as? SongDetailViewController,
         let indexPath = tableView.indexPathForSelectedRow else{
