@@ -31,7 +31,14 @@ class SongViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        guard let songDetailVC = segue.destination as? SongDetailViewController,
+        let indexPath = tableView.indexPathForSelectedRow else{
+            fatalError("no segue found")
+        }
+        let selectedArtist = song[indexPath.row]
+        
+        songDetailVC.song = selectedArtist
+        
     }
 }
 

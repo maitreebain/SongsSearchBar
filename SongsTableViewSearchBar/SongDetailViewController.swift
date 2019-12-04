@@ -10,10 +10,20 @@ import UIKit
 
 class SongDetailViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var artistLabel: UILabel!
+    
+    var song: Song!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageView.image = UIImage(named: "loveSongs")
+        nameLabel.text = song.name
+        artistLabel.text = song.artist
     }
     
 
