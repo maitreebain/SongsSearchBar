@@ -8,9 +8,16 @@
 
 import UIKit
 
-class SongViewController: UIViewController {
+enum SearchBarScope {
+    case artist
+    case title
+}
 
+class SongViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var song = [Song]() {
         didSet {
@@ -18,18 +25,32 @@ class SongViewController: UIViewController {
         }
     }
     
+    var currentScope = SearchBarScope.artist
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadData()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
     }
     
     func loadData() {
         song = Song.loveSongs
     }
 
+    var searchQuery = "" {
+        didSet {
+            switch currentScope {
+            case .artist:
+                song = Song.loveSongs.filter { $0.artist.lowercased().contains(searchQuery.lowercased())}
+            case .title:
+                song = Song.loveSongs.filter { $0.name.lowercased().contains(searchQuery.lowercased())}
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let songDetailVC = segue.destination as? SongDetailViewController,
         let indexPath = tableView.indexPathForSelectedRow else{
@@ -66,4 +87,21 @@ extension SongViewController: UITableViewDataSource {
     
 }
 
-
+extension SongViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchText.count != 0 {
+            loadData()
+        }
+        
+        searchQuery = searchText
+        
+    }
+    
+}
